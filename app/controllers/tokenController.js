@@ -2,8 +2,9 @@ const ERC20ABI = require('../../configs/abi/erc20.json')
 const http = require('http-status-codes');
 const response = require('../common/respone.json');
 const tokenServices = require('../services/tokenServices');
-const ethGatway = require('../blockchain/eth/ethGateWay');
+const ethGateWay = require('../blockchain/eth/ethGateWay');
 const authServices = require('../services/authServices');
+const logger = require('../../logs/winston');
 const kue = require('kue')
     , queue = kue.createQueue();
 module.exports = ({
@@ -38,6 +39,7 @@ module.exports = ({
                     )
                 });
         } catch (err) {
+            logger.error("FUNC: create token ", err);
             return res.status(http.INTERNAL_SERVER_ERROR).send(
                 response[3]
             )
@@ -46,17 +48,41 @@ module.exports = ({
 
     getBalance: async (req, res) => {
         try {
-            const addressToken = req.body.addresstoken;
-            const addressUser = req.body.addressuser;
+            const addressToken = req.query.addresstoken;
+            const addressUser = req.query.addressuser;
             const data = {
                 "addressUser": addressUser,
                 "addressToken": addressToken
             }
-            console.log(data)
             const result = await tokenServices.getBalance(data)
             res.json(result)
         } catch (err) {
+            logger.error("FUNC: get balance token ", err);
             res.json(err);
         }
     },
+
+    transfer: async (req, res) => {
+        try {
+            const to = req.body.to;
+            const amount = req.body.amount;
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.result.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "to": to,
+                "amount": amount,
+                "addressToken": addressToken,
+                "account": account
+            }
+            const result = await tokenServices.transfer(data)
+            res.json(result)
+        } catch (err) {
+            logger.error("FUNC: transfer token ", err);
+            res.json(err);
+        }
+    }
 })

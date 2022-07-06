@@ -4,6 +4,7 @@ const { check, body, param } = require('express-validator');
 const isAuth = require('../../until/validateToken');
 const authController = require('../../app/controllers/authController');
 const tokenController = require('../../app/controllers/tokenController');
+const historyController = require('../../app/controllers/historyController');
 router.post('/login', [
     body('email')
         .isEmail()
@@ -61,14 +62,37 @@ router.post('/token', [
 
 
 router.get('/token/balance', [
-    body('addresstoken', 'address token has to be valid.')
+    param('addresstoken', 'address token has to be valid.')
         .isLength({ min: 1 })
         .isAlphanumeric()
         .trim(),
-    body('addressuser', 'address token has to be valid.')
+    param('addressuser', 'address token has to be valid.')
         .isLength({ min: 1 })
         .isAlphanumeric()
         .trim()
 ], tokenController.getBalance);
+
+router.post('/token/transfer', [
+    body('to', 'address to has to be valid.')
+        .isLength({ min: 1 })
+        .isAlphanumeric()
+        .trim(),
+    body('amount', 'amount has to be valid.')
+        .isLength({ min: 1 })
+        .isAlphanumeric()
+        .trim(),
+    body('addresstoken', 'address token has to be valid.')
+        .isLength({ min: 1 })
+        .isAlphanumeric()
+        .trim(),
+    body('passwordwallet', 'password wallet has to be valid.')
+        .isLength({ min: 1 })
+        .isAlphanumeric()
+        .trim(),
+], isAuth.validateToken, tokenController.transfer);
+
+router.get('/token/history', [
+
+], historyController.getHistory);
 
 module.exports = router;

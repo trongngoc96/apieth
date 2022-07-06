@@ -10,7 +10,7 @@ module.exports = ({
         }
 
         return {
-            "resultFind": JSON.parse(resultFind)
+            "result": JSON.parse(resultFind)
         }
     },
 
@@ -22,7 +22,7 @@ module.exports = ({
             }
 
             return {
-                "resultFind": JSON.parse(resultFind)
+                "result": JSON.parse(resultFind)
             }
         } catch (err) {
             return err;

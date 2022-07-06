@@ -5,6 +5,7 @@ const ethGateWay = require('../blockchain/eth/ethGateWay');
 const bcrypt = require('bcrypt');
 const http = require('http-status-codes');
 const response = require('../common/respone.json');
+const logger = require('../../logs/winston');
 
 const { check, body, validationResult } = require('express-validator')
 
@@ -46,18 +47,18 @@ module.exports = ({
                 });
             }
             const result = await authServices.login({ "email": email })
-            if (result.resultFind == null) {
+            if (result.result == null) {
                 let data = {};
                 data.status = response[3];
                 return res.status(http.INTERNAL_SERVER_ERROR).send(data)
             }
-            const compare = await bcrypt.compare(password, result.resultFind.password)
+            const compare = await bcrypt.compare(password, result.result.password)
             if (compare == true) {
-                const token = generateAccesstoken({ "email": result.resultFind.email, "id": result.resultFind.id })
+                const token = generateAccesstoken({ "email": result.result.email, "id": result.result.id })
                 let data = {};
                 data.status = response[0];
                 data.token = token;
-                data.passwordWallet = result.resultFind.passwordWallet;
+                data.passwordWallet = result.result.passwordWallet;
                 console.log(data)
                 return res.status(http.OK).send(data)
             } else {
@@ -69,7 +70,7 @@ module.exports = ({
         } catch (err) {
             let data = {};
             data.status = response[3];
-
+            logger.error("FUNC: login ", err);
             return res.status(http.INTERNAL_SERVER_ERROR).send(data)
         }
     },
@@ -100,13 +101,13 @@ module.exports = ({
 
             const result = await authServices.register({ "email": email },
                 { "email": email, "password": await bcrypt.hash(password, 12), "username": userName, "keystore": JSON.stringify(keystore), "address": address, "passwordWallet": passwordWallet })
-            if (result.resultFind[1] == true) {
+            if (result.result[1] == true) {
                 return res.status(http.OK).send(response[0])
             } else {
                 return res.status(http.BAD_REQUEST).send(response[1])
             }
         } catch (err) {
-            console.log(err)
+            logger.error("FUNC: register ", err);
             return res.status(http.INTERNAL_SERVER_ERROR).send(response[3])
         }
     }

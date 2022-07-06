@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../../configs/connect/database');
 
-const Users = sequelize.define('tokens', {
+const Users = sequelize.define('historys', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -14,8 +14,7 @@ const Users = sequelize.define('tokens', {
     allowNull: false
   } ,
   block_hash: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   block_number: {
     type: Sequelize.INTEGER
