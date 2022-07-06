@@ -1,0 +1,26 @@
+{
+  "name": "eth_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.4",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "ethereumjs-tx": "^2.1.2",
+    "express-validator": "^6.14.2",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "kue": "^0.11.6",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.2",
+    "sequelize-cli": "^6.4.1",
+    "solc": "^0.4.8",
+    "web3": "^1.7.4"
+  }
+}
