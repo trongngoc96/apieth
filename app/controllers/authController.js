@@ -7,7 +7,7 @@ const http = require('http-status-codes');
 const response = require('../common/respone.json');
 const logger = require('../../logs/winston');
 
-const { check, body, validationResult } = require('express-validator')
+const { validationResult } = require('express-validator');
 
 const expiredTime = process.env.EXPIREDTIME || Const.DAY_IN_MILLISECONDS / 1000 * 30;
 
@@ -30,85 +30,70 @@ module.exports = ({
         return token
     },
 
-    login: async (req, res) => {
+    login: async (req, res, next) => {
         try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
             const email = req.body.email;
             const password = req.body.password;
-            const error = validationResult(req);
-            if (!error.isEmpty()) {
-                return res.status(404).send({
-                    status_code: 404,
-                    status_message: 'email or password null',
-                    oldInput: {
-                        email: email,
-                        password: password
-                    },
-                    validationErrors: error.array()
-                });
-            }
             const result = await authServices.login({ "email": email })
-            if (result.result == null) {
-                let data = {};
-                data.status = response[3];
-                return res.status(http.INTERNAL_SERVER_ERROR).send(data)
-            }
-            const compare = await bcrypt.compare(password, result.result.password)
+            const compare = await bcrypt.compare(password, result.data.password)
             if (compare == true) {
-                const token = generateAccesstoken({ "email": result.result.email, "id": result.result.id })
+                const token = generateAccesstoken({ "email": result.data.email, "id": result.data.id })
                 let data = {};
-                data.status = response[0];
                 data.token = token;
-                data.passwordWallet = result.result.passwordWallet;
+                data.passwordWallet = result.data.passwordWallet;
                 console.log(data)
-                return res.status(http.OK).send(data)
+                return res.status(200).send(data)
             } else {
-                let data = {};
-                data.status = response[3];
-
-                return res.status(http.INTERNAL_SERVER_ERROR).send(data)
+                const error = new Error("Account does not exist!");
+                error.statusCode = 404;
+                throw error;
             }
-        } catch (err) {
-            let data = {};
-            data.status = response[3];
-            logger.error("FUNC: login ", err);
-            return res.status(http.INTERNAL_SERVER_ERROR).send(data)
+        } catch (error) {
+            logger.error("FUNC: login ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
         }
     },
 
-    register: async (req, res) => {
+    register: async (req, res, next) => {
         try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
             const web3 = ethGateWay.getLib();
             const email = req.body.email;
             const password = req.body.password;
-            const repeatPassword = req.body.repeatPassword;
-            const passwordWallet = req.body.passwordWallet;
-            const userName = req.body.userName;
+            const repeatPassword = req.body.repeatpassword;
+            const passwordWallet = req.body.passwordwallet;
+            const userName = req.body.username;
             const account = web3.eth.accounts.create();
             const error = validationResult(req);
             const privateKey = account.privateKey.toString();
             const address = account.address.toString();
             const keystore = web3.eth.accounts.encrypt(privateKey, passwordWallet);
-            if (!error.isEmpty()) {
-                return res.status(http.BAD_REQUEST).send(Object.assign(response[1], {
-                    oldInput: {
-                        email: email,
-                        password: password,
-                        repeatPassword: repeatPassword
-                    },
-                    validationErrors: error.array()
-                }));
-            }
 
             const result = await authServices.register({ "email": email },
                 { "email": email, "password": await bcrypt.hash(password, 12), "username": userName, "keystore": JSON.stringify(keystore), "address": address, "passwordWallet": passwordWallet })
-            if (result.result[1] == true) {
-                return res.status(http.OK).send(response[0])
-            } else {
-                return res.status(http.BAD_REQUEST).send(response[1])
+            return res.status(200).send(result); 
+        } catch (error) {
+            logger.error("FUNC: register ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
             }
-        } catch (err) {
-            logger.error("FUNC: register ", err);
-            return res.status(http.INTERNAL_SERVER_ERROR).send(response[3])
+            next(error);
         }
     }
 

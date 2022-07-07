@@ -1,31 +1,36 @@
 const UserEntities = require('../entities/userEntities');
-
+const logger = require('../../logs/winston');
 module.exports = ({
     classname: 'authServices',
-
+    
     register: async (dataFind, dataInsert) => {
-        const resultFind = await UserEntities.findOrCreate(dataFind, dataInsert);
-        if (JSON.parse(resultFind).error) {
-            return JSON.parse(resultFind).error;
-        }
-
-        return {
-            "result": JSON.parse(resultFind)
+        try {
+            await UserEntities.findOrCreate(dataFind, dataInsert);
+            return {
+                "message": "Success",
+            };
+        } catch (error) {
+            logger.error("register: " + error)
+            throw error
         }
     },
 
     login: async (data) => {
         try {
-            const resultFind = await UserEntities.findOne(data);
-            if (resultFind == null) {
-                return null;
+            const result = await UserEntities.findOne(data);
+            if (!result) {
+                const error = new Error("Account does not exist");
+                error.statusCode = 404;
+                throw error;
+            } else {
+                return {
+                    "message": "Success",
+                    "data": JSON.parse(result)
+                };
             }
-
-            return {
-                "result": JSON.parse(resultFind)
-            }
-        } catch (err) {
-            return err;
+        } catch (error) {
+            logger.error("login: " + error)
+            throw error
         }
-    }
+    },
 })

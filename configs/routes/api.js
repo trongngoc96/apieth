@@ -1,102 +1,25 @@
-var express = require('express');
-var router = express.Router();
-const { check, body, param } = require('express-validator');
-const isAuth = require('../../until/validateToken');
+const express = require('express');
+const router = express.Router();
+
 const authController = require('../../app/controllers/authController');
 const tokenController = require('../../app/controllers/tokenController');
 const historyController = require('../../app/controllers/historyController');
-router.post('/login', [
-    body('email')
-        .isEmail()
-        .withMessage('Please enter a valid email address.')
-        .normalizeEmail(),
-    body('password', 'Password has to be valid.')
-        .isLength({ min: 0 })
-        .isAlphanumeric()
-        .trim()
-], authController.login);
+const validateAuth =  require('../../app/requests/ValidateAuth');
+const validateToken =  require('../../app/requests/ValidateToken');
+const validateHistory =  require('../../app/requests/ValidateHistory');
 
-router.post('/register', [
-    body('email')
-        .isEmail()
-        .withMessage('Please enter a valid email address.')
-        .normalizeEmail(),
-    body('password', 'Password has to be valid.')
-        .isLength({ min: 5, max: 100 })
-        .isAlphanumeric()
-        .trim(),
-    body('repeatPassword')
-        .isLength({ min: 5, max: 100 })
-        .isAlphanumeric()
-        .trim()
-        .custom((value, { req }) => {
-            if (value !== req.body.password) {
-                throw new Error('Password confirmation does not match password');
-            }
-            return true;
-        }),
-    body('userName')
-        .isLength({ min: 6, max: 100 })
-        .isAlphanumeric()
-        .trim(),
-    body('passwordWallet', 'Password has to be valid.')
-        .isLength({ min: 5, max: 100 })
-        .isAlphanumeric()
-        .trim(),
-], authController.register);
+const isAuth = require('../../until/validateToken');
 
-router.post('/token', [
-    body('initialsupply', 'initial supply has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-    body('tokenname', 'token name has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(), 
-    body('tokensymbol', 'token symbol has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-    body('passwordwallet', 'token symbol has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-], isAuth.validateToken, tokenController.create);
+//api auth
+router.post('/login', validateAuth.login(), authController.login);
+router.post('/register', validateAuth.register(), authController.register);
 
+//api token
+router.post('/token', isAuth.validateToken, validateToken.createToken(), tokenController.create);
+router.get('/token/balance', validateToken.tokenBalance(), tokenController.getBalance);
+router.post('/token/transfer', isAuth.validateToken, validateToken.tokenTransfer(), tokenController.transfer);
 
-router.get('/token/balance', [
-    param('addresstoken', 'address token has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-    param('addressuser', 'address token has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim()
-], tokenController.getBalance);
-
-router.post('/token/transfer', [
-    body('to', 'address to has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-    body('amount', 'amount has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-    body('addresstoken', 'address token has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-    body('passwordwallet', 'password wallet has to be valid.')
-        .isLength({ min: 1 })
-        .isAlphanumeric()
-        .trim(),
-], isAuth.validateToken, tokenController.transfer);
-
-router.get('/token/history', [
-
-], historyController.getHistory);
+//api token history
+router.get('/token/history', historyController.getHistory);
 
 module.exports = router;

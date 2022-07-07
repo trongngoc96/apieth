@@ -11,7 +11,8 @@ module.exports = ({
                 "result": JSON.parse(result)
             }
         } catch (err) {
-            return err;
+            logger.error("find all: " + error)
+            throw error
         }
     }
 })

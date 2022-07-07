@@ -1,6 +1,7 @@
 const fs = require('fs');
 const solc = require('solc');
 const tokenServices = require('../services/tokenServices');
+const logger = require('../../logs/winston');
 
 require('dotenv').config();
 const retrycheck = 2;
@@ -74,33 +75,12 @@ queue.process('deployed', (job, done) => {
 
     }, (err, ret) => {
         if (err) {
-            console.log(err)
-            if (retry < retrycheck) {
-                retry = retry + 1
-                var requestOpt = {
-                    url: process.env.URL_TOKEN,
-                    method: "post",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: {
-                        "initialsupply": initialsupply,
-                        "tokenname": tokenname,
-                        "tokensymbol": tokensymbol
-                    }
-                }
-                let options = requestOpt;
-                
-                request(options)
-                done(null, 'unknown');
-            } else {
-                console.log('Success contract fail')
-                done(null, 'unknown');
-            }
+            logger.error('ERR create token queue!!', err)
+            return done(err.message);
         } else {
             tokenServices.create({"address_token": ret.deployed.contractAddress, "tx_id": ret.deployed.transactionHash, 
             "block_hash": ret.deployed.blockHash, "block_number": ret.deployed.blockNumber, "balance": initialsupply, "gas_used": ret.deployed.gasUsed, "address_user": ret.deployed.from, "token_name": tokensymbol})
-            done(null, 'Success');
+            return done(null, 'Success');
         }
     })
 });

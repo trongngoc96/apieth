@@ -10,25 +10,29 @@ module.exports = ({
 
     getHistory: async (req, res) => {
         try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
             const addressToken = req.query.addresstoken;
             const from = req.query.from;
             const to = req.query.to;
-            // if(addressToken || from || to) {
-            //     const history = await historyServices.findAll()
-            // }
             const data = {
                 "address_token": addressToken,
                 "from": from,
                 "to": to
             }
             const history = await historyServices.findAll(data)
-            const result = {};
-            result.status = response[0];
-            result.data = history;
-            return res.status(http.OK).send(result);
+            return res.status(200).send(history)
         } catch (error) {
-            logger.error("FUNC: register ", err);
-            return res.status(http.INTERNAL_SERVER_ERROR).send(response[3]);
+            logger.error("FUNC: get history ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
         }
     }
 
