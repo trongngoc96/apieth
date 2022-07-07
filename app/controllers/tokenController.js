@@ -15,12 +15,18 @@ module.exports = ({
             const initialsupply = req.body.initialsupply;
             const tokenname = req.body.tokenname;
             const tokensymbol = req.body.tokensymbol;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.result.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
             const retry = req.body.check ? req.body.check : 0;
             const job = queue.create('deployed', {
                 retry: retry,
                 initialsupply: initialsupply,
                 tokenname: tokenname,
-                tokensymbol: tokensymbol
+                tokensymbol: tokensymbol,
+                account: account
             })
                 .removeOnComplete(true)
                 .save((err) => {
@@ -74,7 +80,7 @@ module.exports = ({
             const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
             const data = {
                 "to": to,
-                "amount": amount,
+                "amount": amount*1e18,
                 "addressToken": addressToken,
                 "account": account
             }

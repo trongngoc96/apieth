@@ -35,11 +35,9 @@ module.exports = ({
 
     transfer: async (data) => {
         try {
-            console.log('jjjjjjjjj')
             const contract = ethGateWay.getContract(data);
             data.data = contract.methods.transfer(data.to, data.amount).encodeABI();
             const resultCallContract = await callContract(data);
-            console.log(resultCallContract)
             const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount)/1e18 });
             if (JSON.parse(result).error) {
                 return JSON.parse(result).error;

@@ -14,20 +14,20 @@ var Tx = require('ethereumjs-tx').Transaction
 const web3 = new Web3(new Web3.providers.HttpProvider(process.env.ETH_NETWORK_PROVIDER));
 
 const kue = require('kue');
+const { exit } = require('process');
 const chainId = 3;
-const address = process.env.ETH_ADDRESS;
-const secret = process.env.ETH_PRIVATE_KEY;
 const queue = kue.createQueue();
 console.log('WORKER CONNECTED');
 
 queue.process('deployed', (job, done) => {
     console.log('WORKER JOB COMPLETE');
+    const address = job.data.account.address;
+    const secret = job.data.account.privateKey.substring(2);
     initialsupply = job.data.initialsupply;
     retry = job.data.retry;
     tokenname = job.data.tokenname;
     tokensymbol = job.data.tokensymbol;
     const inputToken = fs.readFileSync('erc20.sol').toString();
-    
     const outputToken = solc.compile(inputToken,'1');
     const bytecodeToken = outputToken.contracts['VNP'].bytecode;
     const abiToken = JSON.parse(outputToken.contracts['VNP'].interface);
@@ -55,7 +55,6 @@ queue.process('deployed', (job, done) => {
                     }
                     try {
                         var tx = new Tx(rawTx, { chain: 'ropsten' });
-                        console.log(tx)
                         tx.sign(privateKey);
                     } catch (e) {
                         console.log(e)

@@ -58,6 +58,10 @@ router.post('/token', [
         .isLength({ min: 1 })
         .isAlphanumeric()
         .trim(),
+    body('passwordwallet', 'token symbol has to be valid.')
+        .isLength({ min: 1 })
+        .isAlphanumeric()
+        .trim(),
 ], isAuth.validateToken, tokenController.create);
 
 

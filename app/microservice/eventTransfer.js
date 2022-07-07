@@ -41,7 +41,7 @@ async function run() {
             }
             const updateHistory = await historyEntities.update(data, dataFind);
             console.log("Success", updateHistory);      
-        }).on('error', logger.error("FUNC: event transfer ", console.error));
+        }).on('error', console.error);
     });
 }
 

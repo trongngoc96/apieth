@@ -1,0 +1,10 @@
+[2022-07-07 07:47:45] [[31merror[39m] FUNC: event transfer 
+[2022-07-07 07:49:43] [[31merror[39m] FUNC: event transfer 
+[2022-07-07 08:12:57] [[31merror[39m] Error: Key derivation failed - possibly wrong password
+    at Accounts.decrypt (/home/trongnm/Documents/apieth/node_modules/web3-eth-accounts/lib/index.js:438:15)
+    at create (/home/trongnm/Documents/apieth/app/controllers/tokenController.js:22:53)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-07 08:14:03] [[31merror[39m] Error: Key derivation failed - possibly wrong password
+    at Accounts.decrypt (/home/trongnm/Documents/apieth/node_modules/web3-eth-accounts/lib/index.js:438:15)
+    at create (/home/trongnm/Documents/apieth/app/controllers/tokenController.js:22:53)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
