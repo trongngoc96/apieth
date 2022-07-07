@@ -4,11 +4,9 @@ const tokenServices = require('../services/tokenServices');
 const logger = require('../../logs/winston');
 
 require('dotenv').config();
-const retrycheck = 2;
 const decimals = 18;
 const async = require('async');
 const Web3 = require('web3');
-const request = require('request');
 var Tx = require('ethereumjs-tx').Transaction
 
 

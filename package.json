@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init-db": "echo 'DROP DATABASE IF EXISTS fns; CREATE DATABASE fns CHARACTER SET utf8 COLLATE utf8_general_ci' | mysql -u root -p"
   },
   "author": "",
   "license": "ISC",
