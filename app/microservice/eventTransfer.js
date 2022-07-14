@@ -35,6 +35,7 @@ async function run() {
                 "block_number": event.blockNumber,
                 "block_hash": event.blockHash,
                 "tx_raw": event.raw.data,
+                "status": true
             }
             const dataFind = {
                 "tx_id": event.transactionHash

@@ -16,8 +16,11 @@ router.post('/register', validateAuth.register(), authController.register);
 
 //api token
 router.post('/token', isAuth.validateToken, validateToken.createToken(), tokenController.create);
+router.get('/token', tokenController.getToken);
 router.get('/token/balance', validateToken.tokenBalance(), tokenController.getBalance);
 router.post('/token/transfer', isAuth.validateToken, validateToken.tokenTransfer(), tokenController.transfer);
+router.post('/token/mint', isAuth.validateToken, validateToken.tokenMint(), tokenController.tokenMint);
+router.post('/token/burn', isAuth.validateToken, validateToken.tokenBurn(), tokenController.tokenBurn);
 
 //api token history
 router.get('/token/history', historyController.getHistory);

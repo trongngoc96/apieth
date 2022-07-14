@@ -1,6 +1,7 @@
 const ERC20ABI = require('../../configs/abi/erc20.json')
 const http = require('http-status-codes');
 const response = require('../common/respone.json');
+const Const = require("../common/Const");
 const tokenServices = require('../services/tokenServices');
 const ethGateWay = require('../blockchain/eth/ethGateWay');
 const authServices = require('../services/authServices');
@@ -23,7 +24,7 @@ module.exports = ({
             }
             const initialsupply = req.body.initialsupply;
             const tokenname = req.body.tokenname;
-            const balance = new BigNumber(initialsupply*1e18.toString());
+            const balance = new BigNumber(initialsupply*Const.DECIMAL.toString());
             const tokensymbol = req.body.tokensymbol;
             const passwordWallet = req.body.passwordwallet;
             const findUser = await authServices.login({ 'id': req.decoded.user.id });
@@ -48,8 +49,9 @@ module.exports = ({
                     job.on('failed', () => {
                         console.log('error');
                     });
-                    return res.status(200).send({
-                        "message": "Created",
+                    return res.status(201).send({
+                        "statusCode": 201,
+                        "message": "Created. Please wait a few minutes",
                     })
                 });
         } catch (error) {
@@ -120,5 +122,92 @@ module.exports = ({
             }
             next(error);
         }
-    }
+    },
+
+    getToken: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const status = req.query.status
+            const token = await tokenServices.findAll({"status": status})
+            return res.status(200).send(token)
+        } catch (error) {
+            logger.error("FUNC: get history ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    tokenMint: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const amount = req.body.amount;
+            const balance = new BigNumber(amount*1e18.toString());
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.data.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "amount": balance,
+                "addressToken": addressToken,
+                "account": account
+            }
+            const result = await tokenServices.tokenMint(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: transfer token ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    tokenBurn: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const amount = req.body.amount;
+            const balance = new BigNumber(amount*1e18.toString());
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.data.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "amount": balance,
+                "addressToken": addressToken,
+                "account": account
+            }
+            const result = await tokenServices.tokenBurn(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: transfer token ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
 })

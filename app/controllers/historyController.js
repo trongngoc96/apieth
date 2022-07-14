@@ -20,10 +20,12 @@ module.exports = ({
             const addressToken = req.query.addresstoken;
             const from = req.query.from;
             const to = req.query.to;
+            const status = req.query.status
             const data = {
                 "address_token": addressToken,
                 "from": from,
-                "to": to
+                "to": to,
+                "status": status
             }
             const history = await historyServices.findAll(data)
             return res.status(200).send(history)

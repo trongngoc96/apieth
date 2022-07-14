@@ -8,7 +8,8 @@ module.exports = ({
             removeUnderfined = JSON.parse(JSON.stringify(data))
             const result = await historyEntities.findAll(removeUnderfined);
             return {
-                "result": JSON.parse(result)
+                "statusCode": 200,
+                "data": JSON.parse(result)
             }
         } catch (err) {
             logger.error("find all: " + error)

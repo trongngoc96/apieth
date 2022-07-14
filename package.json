@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init-db": "echo 'DROP DATABASE IF EXISTS fns; CREATE DATABASE fns CHARACTER SET utf8 COLLATE utf8_general_ci' | mysql -u root -p"
+    "init-db": "echo 'DROP DATABASE IF EXISTS fns; CREATE DATABASE apieth CHARACTER SET utf8 COLLATE utf8_general_ci' | mysql -u root -p"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "kue": "^0.11.6",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
+    "node-cron": "^3.0.1",
     "sequelize": "^6.21.2",
     "sequelize-cli": "^6.4.1",
     "solc": "^0.4.8",

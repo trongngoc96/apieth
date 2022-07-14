@@ -100,6 +100,14 @@ contract VNP is SafeMath{
         Burn(msg.sender, _value);
         return true;
     }
+
+    function mint(uint256 _value) returns (bool success) {
+		if (_value <= 0) throw; 
+        balanceOf[msg.sender] = SafeMath.safeAdd(balanceOf[msg.sender], _value);                      // Subtract from the sender
+        totalSupply = SafeMath.safeAdd(totalSupply,_value);                                // Updates totalSupply
+        Burn(msg.sender, _value);
+        return true;
+    }
 	
 	// can accept ether
 	function() payable {

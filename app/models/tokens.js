@@ -33,6 +33,10 @@ const Users = sequelize.define('tokens', {
   token_name: {
     type: Sequelize.STRING
   },
+  status: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
   created_date: {
     type: Sequelize.INTEGER
   },

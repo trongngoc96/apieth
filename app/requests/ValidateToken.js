@@ -20,6 +20,26 @@ module.exports = ({
             .withMessage('Please enter a valid addressuser.')
         ]
     },
+    tokenMint: () => {
+        return [
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet'),
+            body('amount').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.')
+        ]
+    },
+    tokenBurn: () => {
+        return [
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet'),
+            body('amount').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.')
+        ]
+    },
     tokenTransfer: () => {
         return [
             body('to').trim().not().isEmpty()

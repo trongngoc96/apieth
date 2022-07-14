@@ -46,9 +46,10 @@ module.exports = ({
             if (compare == true) {
                 const token = generateAccesstoken({ "email": result.data.email, "id": result.data.id })
                 let data = {};
+                data.message = "Success",
+                data.statusCode = 200
                 data.token = token;
                 data.passwordWallet = result.data.passwordWallet;
-                console.log(data)
                 return res.status(200).send(data)
             } else {
                 const error = new Error("Account does not exist!");
@@ -86,8 +87,8 @@ module.exports = ({
             const keystore = web3.eth.accounts.encrypt(privateKey, passwordWallet);
 
             const result = await authServices.register({ "email": email },
-                { "email": email, "password": await bcrypt.hash(password, 12), "username": userName, "keystore": JSON.stringify(keystore), "address": address, "passwordWallet": passwordWallet })
-            return res.status(200).send(result); 
+            { "email": email, "password": await bcrypt.hash(password, 12), "username": userName, "keystore": JSON.stringify(keystore), "address": address, "passwordWallet": passwordWallet })
+            return res.status(201).send(result); 
         } catch (error) {
             logger.error("FUNC: register ", error);
             if (!error.statusCode) {

@@ -27,9 +27,11 @@ module.exports = ({
         }
     },
 
-    findAll: async () => {
+    findAll: async (dataFind) => {
         try {
-            let result = await tokenModel.findAll()
+            let result = await tokenModel.findAll({
+                where: dataFind
+            })
             return JSON.stringify(result, null, 4)
         } catch (error) {
             return error;

@@ -39,6 +39,10 @@ const Users = sequelize.define('historys', {
   tx_raw: {
     type: Sequelize.STRING(1000)
   },
+  status: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
   created_date: {
     type: Sequelize.INTEGER
   }

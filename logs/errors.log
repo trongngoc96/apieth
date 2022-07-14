@@ -502,3 +502,176 @@
     at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
     at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-08 12:52:56] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at login (/home/happy/apieth/app/controllers/authController.js:37:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-08 13:05:22] [[31merror[39m] Error: Returned error: insufficient funds for gas * price + value
+    at Object.ErrorResponse (/home/happy/apieth/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /home/happy/apieth/node_modules/web3-core-requestmanager/lib/index.js:300:36
+    at XMLHttpRequest.request.onreadystatechange (/home/happy/apieth/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1241:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[2022-07-08 13:05:23] [[31merror[39m] Error: Returned error: insufficient funds for gas * price + value
+    at Object.ErrorResponse (/home/happy/apieth/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /home/happy/apieth/node_modules/web3-core-requestmanager/lib/index.js:300:36
+    at XMLHttpRequest.request.onreadystatechange (/home/happy/apieth/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1241:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[2022-07-08 13:05:24] [[31merror[39m] Error: Returned error: insufficient funds for gas * price + value
+    at Object.ErrorResponse (/home/happy/apieth/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /home/happy/apieth/node_modules/web3-core-requestmanager/lib/index.js:300:36
+    at XMLHttpRequest.request.onreadystatechange (/home/happy/apieth/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1241:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[2022-07-08 13:05:24] [[31merror[39m] Error: Returned error: insufficient funds for gas * price + value
+    at Object.ErrorResponse (/home/happy/apieth/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /home/happy/apieth/node_modules/web3-core-requestmanager/lib/index.js:300:36
+    at XMLHttpRequest.request.onreadystatechange (/home/happy/apieth/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1241:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[2022-07-08 13:05:25] [[31merror[39m] Error: Returned error: insufficient funds for gas * price + value
+    at Object.ErrorResponse (/home/happy/apieth/node_modules/web3-core-helpers/lib/errors.js:28:19)
+    at /home/happy/apieth/node_modules/web3-core-requestmanager/lib/index.js:300:36
+    at XMLHttpRequest.request.onreadystatechange (/home/happy/apieth/node_modules/web3-providers-http/lib/index.js:98:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request-event-target.js:34:22)
+    at XMLHttpRequest._setReadyState (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:208:14)
+    at XMLHttpRequest._onHttpResponseEnd (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:318:14)
+    at IncomingMessage.<anonymous> (/home/happy/apieth/node_modules/xhr2-cookies/dist/xml-http-request.js:289:61)
+    at IncomingMessage.emit (events.js:326:22)
+    at endReadableNT (_stream_readable.js:1241:12)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[2022-07-08 13:39:18] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at getBalance (/home/happy/apieth/app/controllers/tokenController.js:69:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 09:22:37] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:71:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 09:23:33] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:71:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 09:23:40] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:71:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 09:25:44] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:71:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 09:25:50] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:71:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 09:25:51] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:71:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 09:42:48] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:70:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 14:46:26] [[31merror[39m] ReferenceError: data is not defined
+    at getToken (/home/happy/apieth/app/controllers/tokenController.js:136:55)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/happy/apieth/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at /home/happy/apieth/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/happy/apieth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/happy/apieth/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/happy/apieth/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/happy/apieth/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/happy/apieth/node_modules/express/lib/router/index.js:328:13)
+    at /home/happy/apieth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/happy/apieth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/happy/apieth/node_modules/express/lib/router/index.js:280:10)
+    at logger (/home/happy/apieth/node_modules/morgan/index.js:144:5)
+[2022-07-11 14:46:51] [[31merror[39m] ReferenceError: data is not defined
+    at getToken (/home/happy/apieth/app/controllers/tokenController.js:136:55)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/happy/apieth/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at /home/happy/apieth/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/happy/apieth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/happy/apieth/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/happy/apieth/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/happy/apieth/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/happy/apieth/node_modules/express/lib/router/index.js:328:13)
+    at /home/happy/apieth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/happy/apieth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/happy/apieth/node_modules/express/lib/router/index.js:280:10)
+    at logger (/home/happy/apieth/node_modules/morgan/index.js:144:5)
+[2022-07-11 15:04:41] [[31merror[39m] ReferenceError: error is not defined
+    at Object.findAll (/home/happy/apieth/app/services/tokenServices.js:63:41)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:137:27)
+[2022-07-11 15:04:43] [[31merror[39m] ReferenceError: error is not defined
+    at Object.findAll (/home/happy/apieth/app/services/tokenServices.js:63:41)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:137:27)
+[2022-07-11 15:05:13] [[31merror[39m] find all: SyntaxError: Unexpected token E in JSON at position 0
+[2022-07-11 15:05:13] [[31merror[39m] SyntaxError: Unexpected token E in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.findAll (/home/happy/apieth/app/services/tokenServices.js:60:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:137:27)
+[2022-07-11 15:05:47] [[31merror[39m] find all: SyntaxError: Unexpected token E in JSON at position 0
+[2022-07-11 15:05:47] [[31merror[39m] SyntaxError: Unexpected token E in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.findAll (/home/happy/apieth/app/services/tokenServices.js:61:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:137:27)
+[2022-07-11 16:30:19] [[31merror[39m] Mint token: TypeError: contract.methods.mint is not a function
+[2022-07-11 16:30:19] [[31merror[39m] TypeError: contract.methods.mint is not a function
+    at Object.tokenMint (/home/happy/apieth/app/services/tokenServices.js:57:42)
+    at tokenMint (/home/happy/apieth/app/controllers/tokenController.js:170:48)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-11 16:33:57] [[31merror[39m] Mint token: TypeError: contract.methods.mint is not a function
+[2022-07-11 16:33:57] [[31merror[39m] TypeError: contract.methods.mint is not a function
+    at Object.tokenMint (/home/happy/apieth/app/services/tokenServices.js:57:42)
+    at tokenMint (/home/happy/apieth/app/controllers/tokenController.js:170:48)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

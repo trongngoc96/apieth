@@ -7,7 +7,8 @@ module.exports = ({
         try {
             await UserEntities.findOrCreate(dataFind, dataInsert);
             return {
-                "message": "Success",
+                "message": "Created",
+                "statusCode": 201
             };
         } catch (error) {
             logger.error("register: " + error)
@@ -25,6 +26,7 @@ module.exports = ({
             } else {
                 return {
                     "message": "Success",
+                    "statusCode": 200,
                     "data": JSON.parse(result)
                 };
             }
