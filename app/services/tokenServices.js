@@ -39,7 +39,7 @@ module.exports = ({
             const contract = ethGateWay.getContract(data);
             data.data = contract.methods.transfer(data.to, data.amount).encodeABI();
             const resultCallContract = await callContract(data);
-            const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount)/Const.DECIMAL });
+            const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount) / Const.DECIMAL });
             return {
                 "statusCode": 200,
                 "message": "Success. Please wait a few minutes",
@@ -95,5 +95,19 @@ module.exports = ({
             logger.error("find all: " + error)
             throw error
         }
-    }
+    },
+
+    findOne: async (data) => {
+        try {
+            const result = await tokenEntities.findOne(data);
+            return {
+                "message": "Success",
+                "statusCode": 200,
+                "data": JSON.parse(result)
+            };
+        } catch (error) {
+            logger.error("find one token: " + error)
+            throw error
+        }
+    },
 })

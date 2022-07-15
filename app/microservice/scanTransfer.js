@@ -7,8 +7,8 @@ const logger = require('../../logs/winston');
 function eventTransfer() {
     try {
         web3.eth.getPastLogs({
-            fromBlock: "12568721",
-            toBlock: "12568726",
+            fromBlock: "12590888",
+            toBlock: "12590899",
             topics: [web3.utils.sha3('Transfer(address,address,uint256)')]
         }, async function (error, result) {
             if (!error) {

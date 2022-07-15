@@ -8,6 +8,7 @@ const authServices = require('../services/authServices');
 const logger = require('../../logs/winston');
 const BigNumber = require('bignumber.js');
 const { validationResult } = require('express-validator');
+const thirdServices = require('../services/thirdServices');
 const kue = require('kue')
     , queue = kue.createQueue();
 module.exports = ({
@@ -24,6 +25,7 @@ module.exports = ({
             }
             const initialsupply = req.body.initialsupply;
             const tokenname = req.body.tokenname;
+            const productid = req.body.productid;
             const balance = new BigNumber(initialsupply*Const.DECIMAL.toString());
             const tokensymbol = req.body.tokensymbol;
             const passwordWallet = req.body.passwordwallet;
@@ -35,7 +37,8 @@ module.exports = ({
                 initialsupply: balance,
                 tokenname: tokenname,
                 tokensymbol: tokensymbol,
-                account: account
+                account: account,
+                productid: productid
             })
                 .removeOnComplete(true).attempts(5)
                 .save((err) => {
@@ -133,9 +136,60 @@ module.exports = ({
                 error.data = errors.array();
                 throw error;
             }
-            const status = req.query.status
+            const status = req.query.status;
             const token = await tokenServices.findAll({"status": status})
-            return res.status(200).send(token)
+            const product = await thirdServices.getProduct(token);
+            return res.status(200).send(product)
+        } catch (error) {
+            logger.error("FUNC: get history ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    getTokenById: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const productId = req.params.id;
+            const token = await tokenServices.findOne({"product_id": productId})
+            const product = await thirdServices.getOneProduct(token);
+            return res.status(200).send(product)
+        } catch (error) {
+            logger.error("FUNC: get history ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    getDiaryById: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const productId = req.params.id;
+            const relateDiary = req.params.relatediary;
+            const key = req.params.key;
+            const data = {
+                productId: productId,
+                relateDiary: relateDiary,
+                key: key
+            }
+            const product = await thirdServices.getDiaryById(data);
+            return res.status(200).send(product)
         } catch (error) {
             logger.error("FUNC: get history ", error);
             if (!error.statusCode) {

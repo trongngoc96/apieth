@@ -675,3 +675,292 @@
     at Object.tokenMint (/home/happy/apieth/app/services/tokenServices.js:57:42)
     at tokenMint (/home/happy/apieth/app/controllers/tokenController.js:170:48)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 11:29:43] [[31merror[39m] ReferenceError: ethServices is not defined
+    at sendEth (/home/happy/apieth/app/controllers/ethController.js:32:28)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 11:30:22] [[31merror[39m] TypeError: ethServices.sendEth is not a function
+    at sendEth (/home/happy/apieth/app/controllers/ethController.js:33:46)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 11:30:41] [[31merror[39m] Send Eth: ReferenceError: Cannot access 'data' before initialization
+[2022-07-14 11:30:41] [[31merror[39m] ReferenceError: Cannot access 'data' before initialization
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:15:25)
+    at sendEth (/home/happy/apieth/app/controllers/ethController.js:33:46)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 11:31:30] [[31merror[39m] Send Eth: ReferenceError: web3 is not defined
+[2022-07-14 11:31:30] [[31merror[39m] ReferenceError: web3 is not defined
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:16:40)
+    at sendEth (/home/happy/apieth/app/controllers/ethController.js:33:46)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 11:32:14] [[31merror[39m] Send Eth: ReferenceError: eth is not defined
+[2022-07-14 11:32:14] [[31merror[39m] ReferenceError: eth is not defined
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:28:25)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:33:00] [[31merror[39m] TypeError: Cannot read property 'address' of undefined
+    at callContract (/home/happy/apieth/app/blockchain/eth/ethGateWay.js:30:36)
+    at internal/util.js:297:30
+    at new Promise (<anonymous>)
+    at callContract (internal/util.js:296:12)
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:32:46)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:34:36] [[31merror[39m] TypeError: Cannot read property 'address' of undefined
+    at callContract (/home/happy/apieth/app/blockchain/eth/ethGateWay.js:30:36)
+    at internal/util.js:297:30
+    at new Promise (<anonymous>)
+    at callContract (internal/util.js:296:12)
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:32:46)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:35:00] [[31merror[39m] TypeError: Cannot read property 'address' of undefined
+    at callContract (/home/happy/apieth/app/blockchain/eth/ethGateWay.js:30:36)
+    at internal/util.js:297:30
+    at new Promise (<anonymous>)
+    at callContract (internal/util.js:296:12)
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:32:46)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:38:13] [[31merror[39m] Send Eth: Error: Balance of Fns insufficient
+[2022-07-14 11:38:13] [[31merror[39m] Error: Balance of Fns insufficient
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:20:32)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:38:59] [[31merror[39m] Send Eth: Error: Balance of Fns insufficient
+[2022-07-14 11:38:59] [[31merror[39m] Error: Balance of Fns insufficient
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:20:32)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:39:19] [[31merror[39m] Send Eth: TypeError: balanceOfFrAddress.toNumber is not a function
+[2022-07-14 11:39:19] [[31merror[39m] TypeError: balanceOfFrAddress.toNumber is not a function
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:19:36)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:40:12] [[31merror[39m] Send Eth: TypeError: web3.eth.getBalance(...).toNumber is not a function
+[2022-07-14 11:40:12] [[31merror[39m] TypeError: web3.eth.getBalance(...).toNumber is not a function
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:17:88)
+    at sendEth (/home/happy/apieth/app/controllers/ethController.js:33:46)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 11:40:40] [[31merror[39m] Send Eth: TypeError: data.amounttoNumber is not a function
+[2022-07-14 11:40:40] [[31merror[39m] TypeError: data.amounttoNumber is not a function
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:19:43)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:41:34] [[31merror[39m] Send Eth: Error: Balance of Fns insufficient
+[2022-07-14 11:41:34] [[31merror[39m] Error: Balance of Fns insufficient
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:18:32)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 11:41:53] [[31merror[39m] Send Eth: Error: Balance of ETH insufficient
+[2022-07-14 11:41:53] [[31merror[39m] Error: Balance of ETH insufficient
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:18:32)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 14:57:31] [[31merror[39m] find all: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-14 14:57:31] [[31merror[39m] SyntaxError: Unexpected token S in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.findAll (/home/happy/apieth/app/services/tokenServices.js:92:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:140:27)
+[2022-07-14 14:58:48] [[31merror[39m] find all: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-14 14:58:48] [[31merror[39m] SyntaxError: Unexpected token S in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.findAll (/home/happy/apieth/app/services/tokenServices.js:92:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:140:27)
+[2022-07-14 14:59:43] [[31merror[39m] find all: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-14 14:59:43] [[31merror[39m] SyntaxError: Unexpected token S in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.findAll (/home/happy/apieth/app/services/tokenServices.js:93:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:140:27)
+[2022-07-14 15:01:32] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at create (/home/happy/apieth/app/controllers/tokenController.js:21:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 15:20:36] [[31merror[39m] Get Balance Internal Exchange: Error: Invalid protocol: 103.161.38.166:
+[2022-07-14 15:20:36] [[31merror[39m] Error: Invalid protocol: 103.161.38.166:
+    at Request.init (/home/happy/apieth/node_modules/request/request.js:458:31)
+    at new Request (/home/happy/apieth/node_modules/request/request.js:127:8)
+    at request (/home/happy/apieth/node_modules/request/index.js:53:10)
+    at internal/util.js:297:30
+    at new Promise (<anonymous>)
+    at request (internal/util.js:296:12)
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:26:36)
+    at getToken (/home/happy/apieth/app/controllers/tokenController.js:141:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 15:21:41] [[31merror[39m] Get Balance Internal Exchange: Error: Invalid protocol: 103.161.38.166:
+[2022-07-14 15:21:41] [[31merror[39m] Error: Invalid protocol: 103.161.38.166:
+    at Request.init (/home/happy/apieth/node_modules/request/request.js:458:31)
+    at new Request (/home/happy/apieth/node_modules/request/request.js:127:8)
+    at request (/home/happy/apieth/node_modules/request/index.js:53:10)
+    at internal/util.js:297:30
+    at new Promise (<anonymous>)
+    at request (internal/util.js:296:12)
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:26:36)
+    at getToken (/home/happy/apieth/app/controllers/tokenController.js:141:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 15:22:54] [[31merror[39m] Get Balance Internal Exchange: TypeError: Cannot read property 'data' of undefined
+[2022-07-14 15:22:54] [[31merror[39m] TypeError: Cannot read property 'data' of undefined
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:35:37)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:141:29)
+[2022-07-14 15:24:05] [[31merror[39m] Get Balance Internal Exchange: TypeError: Cannot read property 'data' of undefined
+[2022-07-14 15:24:05] [[31merror[39m] TypeError: Cannot read property 'data' of undefined
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:35:37)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:141:29)
+[2022-07-14 15:24:29] [[31merror[39m] Get Balance Internal Exchange: TypeError: Cannot read property 'data' of undefined
+[2022-07-14 15:24:29] [[31merror[39m] TypeError: Cannot read property 'data' of undefined
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:35:37)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:141:29)
+[2022-07-14 16:05:06] [[31merror[39m] find one token: SyntaxError: Unexpected token E in JSON at position 0
+[2022-07-14 16:05:06] [[31merror[39m] SyntaxError: Unexpected token E in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.findOne (/home/happy/apieth/app/services/tokenServices.js:106:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getTokenById (/home/happy/apieth/app/controllers/tokenController.js:162:27)
+[2022-07-14 16:05:28] [[31merror[39m] find one token: SyntaxError: Unexpected token E in JSON at position 0
+[2022-07-14 16:05:28] [[31merror[39m] SyntaxError: Unexpected token E in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.findOne (/home/happy/apieth/app/services/tokenServices.js:107:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getTokenById (/home/happy/apieth/app/controllers/tokenController.js:162:27)
+[2022-07-14 16:06:06] [[31merror[39m] ReferenceError: product is not defined
+    at getTokenById (/home/happy/apieth/app/controllers/tokenController.js:164:41)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 16:09:21] [[31merror[39m] Internal Server Error! 
+[2022-07-14 16:09:21] [[31merror[39m] Get product ReferenceError: error is not defined
+[2022-07-14 16:09:21] [[31merror[39m] ReferenceError: error is not defined
+    at Object.getOneProduct (/home/happy/apieth/app/services/thirdServices.js:75:17)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getTokenById (/home/happy/apieth/app/controllers/tokenController.js:164:29)
+[2022-07-14 16:09:35] [[31merror[39m] Internal Server Error! 
+[2022-07-14 16:09:35] [[31merror[39m] Get product ReferenceError: error is not defined
+[2022-07-14 16:09:35] [[31merror[39m] ReferenceError: error is not defined
+    at Object.getOneProduct (/home/happy/apieth/app/services/thirdServices.js:75:17)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getTokenById (/home/happy/apieth/app/controllers/tokenController.js:164:29)
+[2022-07-14 16:34:08] [[31merror[39m] Get product ReferenceError: relateDiary is not defined
+[2022-07-14 16:34:08] [[31merror[39m] ReferenceError: relateDiary is not defined
+    at Object.getDiaryById (/home/happy/apieth/app/services/thirdServices.js:101:103)
+    at getDiaryById (/home/happy/apieth/app/controllers/tokenController.js:191:49)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/happy/apieth/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at /home/happy/apieth/node_modules/express/lib/router/index.js:284:15
+    at param (/home/happy/apieth/node_modules/express/lib/router/index.js:365:14)
+    at param (/home/happy/apieth/node_modules/express/lib/router/index.js:376:14)
+    at param (/home/happy/apieth/node_modules/express/lib/router/index.js:376:14)
+    at param (/home/happy/apieth/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/home/happy/apieth/node_modules/express/lib/router/index.js:421:3)
+    at next (/home/happy/apieth/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/happy/apieth/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/happy/apieth/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+[2022-07-14 16:34:28] [[31merror[39m] Get product SyntaxError: Unexpected token < in JSON at position 0
+[2022-07-14 16:34:28] [[31merror[39m] SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at Object.getDiaryById (/home/happy/apieth/app/services/thirdServices.js:115:35)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getDiaryById (/home/happy/apieth/app/controllers/tokenController.js:191:29)
+[2022-07-14 17:25:44] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 17:32:59] [[31merror[39m] Error: Key derivation failed - possibly wrong password
+    at Accounts.decrypt (/home/happy/apieth/node_modules/web3-eth-accounts/lib/index.js:438:15)
+    at sendEth (/home/happy/apieth/app/controllers/ethController.js:27:53)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 17:33:10] [[31merror[39m] Error: Key derivation failed - possibly wrong password
+    at Accounts.decrypt (/home/happy/apieth/node_modules/web3-eth-accounts/lib/index.js:438:15)
+    at sendEth (/home/happy/apieth/app/controllers/ethController.js:27:53)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 17:33:19] [[31merror[39m] Send Eth: Error: Balance of ETH insufficient
+[2022-07-14 17:33:19] [[31merror[39m] Error: Balance of ETH insufficient
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:18:32)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 17:33:32] [[31merror[39m] Send Eth: Error: Balance of ETH insufficient
+[2022-07-14 17:33:32] [[31merror[39m] Error: Balance of ETH insufficient
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:18:32)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-14 18:05:56] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/happy/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 18:16:41] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at create (/home/happy/apieth/app/controllers/tokenController.js:21:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 18:40:35] [[31merror[39m] Get product TypeError: data.data.lenght is not a function
+[2022-07-14 18:40:35] [[31merror[39m] TypeError: data.data.lenght is not a function
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:27:52)
+    at getToken (/home/happy/apieth/app/controllers/tokenController.js:141:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 18:41:16] [[31merror[39m] Get product TypeError: data.data.length is not a function
+[2022-07-14 18:41:16] [[31merror[39m] TypeError: data.data.length is not a function
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:27:52)
+    at getToken (/home/happy/apieth/app/controllers/tokenController.js:141:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 18:42:35] [[31merror[39m] Get product TypeError: "data.data".length is not a function
+[2022-07-14 18:42:35] [[31merror[39m] TypeError: "data.data".length is not a function
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:27:54)
+    at getToken (/home/happy/apieth/app/controllers/tokenController.js:141:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 18:50:28] [[31merror[39m] Get product TypeError: Cannot read property 'concat' of undefined
+[2022-07-14 18:50:28] [[31merror[39m] TypeError: Cannot read property 'concat' of undefined
+    at /home/happy/apieth/app/services/thirdServices.js:50:36
+    at Array.map (<anonymous>)
+    at /home/happy/apieth/app/services/thirdServices.js:43:35
+    at Array.map (<anonymous>)
+    at Object.getProduct (/home/happy/apieth/app/services/thirdServices.js:42:37)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async getToken (/home/happy/apieth/app/controllers/tokenController.js:141:29)
+[2022-07-14 18:54:15] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at create (/home/happy/apieth/app/controllers/tokenController.js:21:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 18:58:24] [[31merror[39m] Get product TypeError: Cannot read property 'product_id' of null
+[2022-07-14 18:58:24] [[31merror[39m] TypeError: Cannot read property 'product_id' of null
+    at Object.getOneProduct (/home/happy/apieth/app/services/thirdServices.js:72:83)
+    at getTokenById (/home/happy/apieth/app/controllers/tokenController.js:163:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 18:59:43] [[31merror[39m] Get product TypeError: Cannot read property 'product_id' of null
+[2022-07-14 18:59:43] [[31merror[39m] TypeError: Cannot read property 'product_id' of null
+    at Object.getOneProduct (/home/happy/apieth/app/services/thirdServices.js:72:83)
+    at getTokenById (/home/happy/apieth/app/controllers/tokenController.js:163:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 19:00:15] [[31merror[39m] Get product TypeError: Cannot read property 'product_id' of null
+[2022-07-14 19:00:15] [[31merror[39m] TypeError: Cannot read property 'product_id' of null
+    at Object.getOneProduct (/home/happy/apieth/app/services/thirdServices.js:72:83)
+    at getTokenById (/home/happy/apieth/app/controllers/tokenController.js:164:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 19:03:12] [[31merror[39m] Get product TypeError: Cannot read property 'product_id' of null
+[2022-07-14 19:03:12] [[31merror[39m] TypeError: Cannot read property 'product_id' of null
+    at Object.getOneProduct (/home/happy/apieth/app/services/thirdServices.js:72:83)
+    at getTokenById (/home/happy/apieth/app/controllers/tokenController.js:164:49)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-14 19:24:27] [[31merror[39m] Send Eth: Error: Balance of ETH insufficient
+[2022-07-14 19:24:27] [[31merror[39m] Error: Balance of ETH insufficient
+    at Object.sendEth (/home/happy/apieth/app/services/ethServices.js:18:32)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async sendEth (/home/happy/apieth/app/controllers/ethController.js:33:28)
+[2022-07-15 15:16:52] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at create (/home/happy/apieth/app/controllers/tokenController.js:21:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

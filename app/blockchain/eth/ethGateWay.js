@@ -20,20 +20,26 @@ module.exports = ({
 
     callContract: async (data, callback) => {
         try {
+            let to = data.addressToken;
+            let value = '0x0';
+            if (data.type == 'eth') {
+                to = data.to;
+                value = data.amount;
+            }
             const resultSignTransaction = await web3.eth.accounts.signTransaction({
                 from: data.account.address,
                 nonce: web3.eth.getTransactionCount(data.account.address, 'pending'),
-                to: data.addressToken,
-                value: '0x0',
+                to: to,
+                value: value,
                 data: data.data,
                 gasPrice: web3.utils.toHex(100000000),
                 gas: web3.utils.toHex(3600000),
             }, data.account.privateKey)
             web3.eth.sendSignedTransaction(resultSignTransaction.rawTransaction)
-            .on('transactionHash', async function(hash){
-            
-                return callback(null, hash);
-            })
+                .on('transactionHash', async function (hash) {
+
+                    return callback(null, hash);
+                })
         } catch (error) {
             logger.error("FUNC: callContract ", error);
             return error;

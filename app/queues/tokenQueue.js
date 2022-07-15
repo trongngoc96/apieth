@@ -76,7 +76,7 @@ queue.process('deployed', (job, done) => {
             logger.error('ERR create token queue!!', err)
             return done(err.message);
         } else {
-            tokenServices.create({"address_token": ret.deployed.contractAddress, "tx_id": ret.deployed.transactionHash, 
+            tokenServices.create({"address_token": ret.deployed.contractAddress, "tx_id": ret.deployed.transactionHash, "product_id": job.data.productid,
             "block_hash": ret.deployed.blockHash, "block_number": ret.deployed.blockNumber, "balance": initialsupply, "status": true, "gas_used": ret.deployed.gasUsed, "address_user": ret.deployed.from, "token_name": tokensymbol})
             return done(null, 'Success');
         }

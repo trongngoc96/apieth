@@ -1,4 +1,5 @@
 const { body, validationResult, query, param } = require('express-validator');
+const token = require('../models/tokens');
 module.exports = ({
     createToken: () => {
         return [
@@ -8,6 +9,15 @@ module.exports = ({
             .withMessage('Please enter a valid tokenname.'),
             body('tokensymbol').trim().not().isEmpty()
             .withMessage('Please enter a valid tokensymbol.'),
+            body('productid').trim().not().isEmpty()
+            .withMessage('Please enter a valid tokensymbol.')
+            .custom((value, { req }) => {
+                return token.findOne({ where: {"product_id": value} }).then(result => {
+                    if (result) {
+                        return Promise.reject('product id already exists!');
+                    }
+                });
+            }),
             body('passwordwallet').trim().not().isEmpty()
             .withMessage('Please enter a valid passwordwallet'),
         ]

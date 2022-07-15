@@ -2,41 +2,42 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../../configs/connect/database');
 
-const Users = sequelize.define('tokens', {
+const Users = sequelize.define('ethHistorys', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  address_token: {
+  address_eth: {
     type: Sequelize.STRING,
     allowNull: false
-  },
-  product_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    unique: true
-  },
+  } ,
   block_hash: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   block_number: {
     type: Sequelize.INTEGER
   },
-  gas_used: {
+  fee: {
     type: Sequelize.INTEGER
   },
-  address_user: {
+  from: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  to: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  amount: {
+    type: Sequelize.INTEGER
   },
   tx_id: {
     type: Sequelize.STRING
   },
-  token_name: {
-    type: Sequelize.STRING
+  tx_raw: {
+    type: Sequelize.STRING(1000)
   },
   status: {
     type: Sequelize.BOOLEAN,
@@ -44,9 +45,6 @@ const Users = sequelize.define('tokens', {
   },
   created_date: {
     type: Sequelize.INTEGER
-  },
-  balance: {
-    type: Sequelize.FLOAT
   }
 
 });
