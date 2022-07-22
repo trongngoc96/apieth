@@ -2,17 +2,13 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../../configs/connect/database');
 
-const Users = sequelize.define('ethHistorys', {
+const EthHistorys = sequelize.define('ethHistorys', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  address_eth: {
-    type: Sequelize.STRING,
-    allowNull: false
-  } ,
   block_hash: {
     type: Sequelize.STRING
   },
@@ -49,4 +45,4 @@ const Users = sequelize.define('ethHistorys', {
 
 });
 
-module.exports = Users;
+module.exports = EthHistorys;

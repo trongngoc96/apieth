@@ -964,3 +964,107 @@
     at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
     at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-18 13:51:17] [[31merror[39m] Event Transfer: Error: Returned error: query returned more than 10000 results
+[2022-07-18 13:55:19] [[31merror[39m] Event Transfer: Error: Returned error: query returned more than 10,000 results spanning multiple blocks
+[2022-07-18 14:13:26] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:13:26] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:14:23] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:14:23] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:14:47] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:14:47] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:14:56] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:14:56] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:15:34] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:15:34] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:19:36] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:19:36] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:21:35] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:21:35] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:23:41] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:23:41] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:24:34] [[31merror[39m] find one latest: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 14:24:34] [[31merror[39m] Event Transfer: SyntaxError: Unexpected token S in JSON at position 0
+[2022-07-18 15:36:26] [[31merror[39m] Event Transfer: Error: Given input "[object Object]" is not a number.
+[2022-07-18 15:37:05] [[31merror[39m] Event Transfer: Error: Given input "[object Object]" is not a number.
+[2022-07-18 15:38:18] [[31merror[39m] Event Transfer: Error: Given input "[object Object]" is not a number.
+[2022-07-18 16:42:57] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-18 16:49:31] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at login (/home/trongnm/Documents/apieth/app/controllers/authController.js:37:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-18 17:37:03] [[31merror[39m] Event Transfer: ReferenceError: error is not defined
+[2022-07-18 17:38:01] [[31merror[39m] Event Transfer: ReferenceError: result is not defined
+[2022-07-18 17:38:20] [[31merror[39m] Event Transfer: TypeError: findEthHistory.map is not a function
+[2022-07-18 17:39:02] [[31merror[39m] Event Transfer: ReferenceError: error is not defined
+[2022-07-18 17:39:23] [[31merror[39m] Event Transfer: ReferenceError: result is not defined
+[2022-07-18 17:39:43] [[31merror[39m] Event Transfer: ReferenceError: result is not defined
+[2022-07-18 17:41:52] [[31merror[39m] Event Transfer: TypeError: findEthHistory.map is not a function
+[2022-07-18 17:47:53] [[31merror[39m] Event Transfer: TypeError: findEthHistory.map is not a function
+[2022-07-18 17:57:00] [[31merror[39m] Event Transfer: TypeError: ethEntities.update is not a function
+[2022-07-22 10:54:58] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:07] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:08] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:09] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:09] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:10] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:10] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:11] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:12] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-22 10:55:12] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at register (/home/trongnm/Documents/apieth/app/controllers/authController.js:72:31)
+    at Layer.handle [as handle_request] (/home/trongnm/Documents/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

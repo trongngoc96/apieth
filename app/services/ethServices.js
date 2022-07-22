@@ -1,6 +1,6 @@
 const tokenEntities = require('../entities/tokenEntities');
 const ERC20ABI = require('../../configs/abi/erc20.json')
-const historyEntities = require('../entities/historyEntities');
+const ethEntities = require('../entities/ethEntities');
 const ethGateWay = require('../blockchain/eth/ethGateWay');
 const Const = require('../common/Const')
 const logger = require('../../logs/winston');
@@ -27,6 +27,7 @@ module.exports = ({
                 "data": null
             }
             const resultCallContract = await callContract(dataRaw);
+            const result = await ethEntities.create({"from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": data.amount });
             return {
                 "message": "Success",
                 "statusCode": 200,
@@ -37,5 +38,19 @@ module.exports = ({
             throw error
         }
 
+    },
+
+    findAll: async (data) => {
+        try {
+            removeUnderfined = JSON.parse(JSON.stringify(data))
+            const result = await ethEntities.findAll(removeUnderfined);
+            return {
+                "statusCode": 200,
+                "data": JSON.parse(result)
+            }
+        } catch (error) {
+            logger.error("find all: " + error)
+            throw error
+        }
     },
 })

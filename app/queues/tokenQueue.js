@@ -2,6 +2,7 @@ const fs = require('fs');
 const solc = require('solc');
 const tokenServices = require('../services/tokenServices');
 const logger = require('../../logs/winston');
+const ABIERC20 = require('../../configs/abi/erc20.json')
 
 require('dotenv').config();
 const decimals = 18;
@@ -17,7 +18,22 @@ const { exit } = require('process');
 const chainId = 3;
 const queue = kue.createQueue();
 console.log('WORKER CONNECTED');
-
+const source = fs.readFileSync('erc20.sol').toString();
+const input = {
+    language: 'Solidity',
+    sources: {
+      'erc20.sol': {
+        content: source,
+      },
+    },
+    settings: {
+      outputSelection: {
+        '*': {
+          '*': ['*']
+        }
+      }
+    }
+  };
 queue.process('deployed', (job, done) => {
     console.log('WORKER JOB COMPLETE');
     const address = job.data.account.address;
@@ -26,12 +42,11 @@ queue.process('deployed', (job, done) => {
     retry = job.data.retry;
     tokenname = job.data.tokenname;
     tokensymbol = job.data.tokensymbol;
-    const inputToken = fs.readFileSync('erc20.sol').toString();
-    const outputToken = solc.compile(inputToken,'1');
-    const bytecodeToken = outputToken.contracts['VNP'].bytecode;
-    const abiToken = JSON.parse(outputToken.contracts['VNP'].interface);
+    const outputToken = JSON.parse(solc.compile(JSON.stringify(input)));
+    const bytecodeToken = outputToken.contracts['erc20.sol']['ERC20'].evm.bytecode.object;
+    // const abiToken = JSON.parse(outputToken.contracts['erc20.sol']['ERC20'].interface);
 
-    var contract = new web3.eth.Contract(abiToken);
+    var contract = new web3.eth.Contract(ABIERC20);
 
     const hexdata = contract.deploy({
         data: '0x' + bytecodeToken,

@@ -110,4 +110,21 @@ module.exports = ({
             throw error
         }
     },
+
+    deposit: async (data) => {
+        try {
+            const contract = ethGateWay.getContract(data);
+            data.data = contract.methods.deposit(data.amount).encodeABI();
+            const resultCallContract = await callContract(data);
+            const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount) / Const.DECIMAL });
+            return {
+                "statusCode": 200,
+                "message": "Success. Please wait a few minutes",
+                "data": JSON.parse(result)
+            }
+        } catch (error) {
+            logger.error("transfer token: " + error)
+            throw error
+        }
+    },
 })

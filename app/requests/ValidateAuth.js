@@ -26,7 +26,7 @@ module.exports = ({
             body('username').trim().not().isEmpty()
             .withMessage('Please enter a valid username.'),
             body('passwordwallet').trim().not().isEmpty()
-            .withMessage('Please enter a valid password wallet.'),
+            .withMessage('Please enter a valid password wallet.')
         ]
     },
     login: () => {

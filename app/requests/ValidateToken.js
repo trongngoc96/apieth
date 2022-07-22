@@ -61,6 +61,17 @@ module.exports = ({
             body('passwordwallet').trim().not().isEmpty()
             .withMessage('Please enter a valid passwordwallet.')
         ]
+    },
+
+    tokenBuy: () => {
+        return [
+            body('amount').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.'),
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet.')
+        ]
     }
 
 })

@@ -37,12 +37,21 @@ module.exports = ({
             }, data.account.privateKey)
             web3.eth.sendSignedTransaction(resultSignTransaction.rawTransaction)
                 .on('transactionHash', async function (hash) {
-
                     return callback(null, hash);
                 })
         } catch (error) {
             logger.error("FUNC: callContract ", error);
             return error;
         }
-    }
+    },
+
+    getTransaction: async (txId) => {
+        const tx = await web3.eth.getTransaction(txId);
+        if (!tx) {
+            logger.info("Still could not get full of tx info", txId)
+            throw new Error("Still could not get full of tx info", txId)
+        } else {
+            return tx;
+        }
+    }    
 })

@@ -85,9 +85,9 @@ module.exports = ({
             const privateKey = account.privateKey.toString();
             const address = account.address.toString();
             const keystore = web3.eth.accounts.encrypt(privateKey, passwordWallet);
-
+            const keystoreAdmin = web3.eth.accounts.encrypt(privateKey, process.env.PASSWORDWALLET);
             const result = await authServices.register({ "email": email },
-            { "email": email, "password": await bcrypt.hash(password, 12), "username": userName, "keystore": JSON.stringify(keystore), "address": address, "passwordWallet": passwordWallet })
+            { "email": email, "password": await bcrypt.hash(password, 12), "username": userName, "keystore": JSON.stringify(keystore), "keystore_admin": JSON.stringify(keystoreAdmin), "address": address, "passwordWallet": passwordWallet })
             return res.status(201).send(result); 
         } catch (error) {
             logger.error("FUNC: register ", error);

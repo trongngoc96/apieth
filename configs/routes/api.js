@@ -25,9 +25,11 @@ router.get('/token/balance', validateToken.tokenBalance(), tokenController.getBa
 router.post('/token/transfer', isAuth.validateToken, validateToken.tokenTransfer(), tokenController.transfer);
 router.post('/token/mint', isAuth.validateToken, validateToken.tokenMint(), tokenController.tokenMint);
 router.post('/token/burn', isAuth.validateToken, validateToken.tokenBurn(), tokenController.tokenBurn);
+router.post('/token/buy', isAuth.validateToken, validateToken.tokenBuy(), tokenController.tokenBuy);
 
 //api eth
 router.post('/eth/send', isAuth.validateToken, validateEth.send(), ethController.sendEth);
+router.get('/eth/history', ethController.getHistory);
 
 //api token history
 router.get('/token/history', historyController.getHistory);

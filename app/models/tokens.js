@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../../configs/connect/database');
 
-const Users = sequelize.define('tokens', {
+const Tokens = sequelize.define('tokens', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -51,4 +51,4 @@ const Users = sequelize.define('tokens', {
 
 });
 
-module.exports = Users;
+module.exports = Tokens;

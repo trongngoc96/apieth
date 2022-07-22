@@ -8,6 +8,8 @@ const sequelize = require('./configs/connect/database');
 const users = require('./app/models/users')
 const token = require('./app/models/tokens');
 const history = require('./app/models/historys');
+const latests = require('./app/models/latest')
+const ethHistorys = require('./app/models/ethHistorys');
 
 var app = express();
 var cors = require('cors');

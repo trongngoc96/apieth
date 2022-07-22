@@ -264,4 +264,38 @@ module.exports = ({
             next(error);
         }
     },
+
+    tokenBuy: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const amount = req.body.amount;
+            const balance = new BigNumber(amount*1e18.toString());
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.data.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "amount": balance,
+                "to": addressToken,
+                "account": account,
+                "type": "eth"
+            }
+            const result = await tokenServices.deposit(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: token buy ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
 })

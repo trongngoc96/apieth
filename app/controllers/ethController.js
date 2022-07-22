@@ -40,5 +40,33 @@ module.exports = ({
             }
             next(error);
         }
+    },
+
+    getHistory: async (req, res) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const from = req.query.from;
+            const to = req.query.to;
+            const status = req.query.status
+            const data = {
+                "from": from,
+                "to": to,
+                "status": status
+            }
+            const history = await ethServices.findAll(data)
+            return res.status(200).send(history)
+        } catch (error) {
+            logger.error("FUNC: get history ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
     }
 })

@@ -25,6 +25,10 @@ const Users = sequelize.define('users', {
     type: Sequelize.STRING(5000),
     allowNull: false
   },
+  keystore_admin: {
+    type: Sequelize.STRING(5000),
+    allowNull: false
+  },
   address: {
     type: Sequelize.STRING,
     allowNull: false
