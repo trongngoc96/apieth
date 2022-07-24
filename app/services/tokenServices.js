@@ -127,4 +127,88 @@ module.exports = ({
             throw error
         }
     },
+
+    tokenPrice: async (data) => {
+        try {
+            const contract = ethGateWay.getContract(data);
+            data.data = contract.methods.iprice(data.amount).encodeABI();
+            const resultCallContract = await callContract(data);
+            console.log(resultCallContract)
+            // const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount) / Const.DECIMAL });
+            return {
+                "statusCode": 200,
+                "message": "Success. Please wait a few minutes",
+                "data": resultCallContract
+            }
+        } catch (error) {
+            logger.error("price token: " + error)
+            throw error
+        }
+    },
+
+    getPrice: async (data) => {
+        try {
+            const web3 = ethGateWay.getLib();
+            const contract = new web3.eth.Contract(ERC20ABI, data.addressToken);
+            const result = await contract.methods.getPrice().call();
+            return {
+                "statusCode": 200,
+                "balance": result
+            }
+        } catch (error) {
+            logger.error("get price token: " + error)
+            throw error
+        }
+    },
+
+    tokenConfirm: async (data) => {
+        try {
+            const contract = ethGateWay.getContract(data);
+            data.data = contract.methods.confirm(data.to).encodeABI();
+            const resultCallContract = await callContract(data);
+            //const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount) / Const.DECIMAL });
+            return {
+                "statusCode": 200,
+                "message": "Success. Please wait a few minutes",
+                "data": resultCallContract
+            }
+        } catch (error) {
+            logger.error("transfer token: " + error)
+            throw error
+        }
+    },
+
+    tokenReject: async (data) => {
+        try {
+            const contract = ethGateWay.getContract(data);
+            data.data = contract.methods.reject(data.to).encodeABI();
+            const resultCallContract = await callContract(data);
+            //const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount) / Const.DECIMAL });
+            return {
+                "statusCode": 200,
+                "message": "Success. Please wait a few minutes",
+                "data": resultCallContract
+            }
+        } catch (error) {
+            logger.error("transfer token: " + error)
+            throw error
+        }
+    },
+
+    tokenWithdraw: async (data) => {
+        try {
+            const contract = ethGateWay.getContract(data);
+            data.data = contract.methods.withdraw(data.to, data.amount).encodeABI();
+            const resultCallContract = await callContract(data);
+            //const result = await historyEntities.create({ "address_token": data.addressToken, "from": data.account.address, "to": data.to, "tx_id": resultCallContract, "amount": (data.amount) / Const.DECIMAL });
+            return {
+                "statusCode": 200,
+                "message": "Success. Please wait a few minutes",
+                "data": resultCallContract
+            }
+        } catch (error) {
+            logger.error("transfer token: " + error)
+            throw error
+        }
+    },
 })

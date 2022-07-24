@@ -30,12 +30,62 @@ module.exports = ({
             .withMessage('Please enter a valid addressuser.')
         ]
     },
+    tokenPrice: () => {
+        return [
+            body('amount').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.'),
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet')
+        ]
+    },
+    getPrice: () => {
+        return [
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet')
+        ]
+    },
     tokenMint: () => {
         return [
             body('addresstoken').trim().not().isEmpty()
             .withMessage('Please enter a valid addresstoken.'),
             body('passwordwallet').trim().not().isEmpty()
             .withMessage('Please enter a valid passwordwallet'),
+            body('amount').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.')
+        ]
+    },
+    tokenConfirm: () => {
+        return [
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet'),
+            body('to').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.')
+        ]
+    },
+    tokenReject: () => {
+        return [
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet'),
+            body('to').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.')
+        ]
+    },
+    tokenWithdraw: () => {
+        return [
+            body('addresstoken').trim().not().isEmpty()
+            .withMessage('Please enter a valid addresstoken.'),
+            body('passwordwallet').trim().not().isEmpty()
+            .withMessage('Please enter a valid passwordwallet'),
+            body('to').trim().not().isEmpty()
+            .withMessage('Please enter a valid amount.'),
             body('amount').trim().not().isEmpty()
             .withMessage('Please enter a valid amount.')
         ]

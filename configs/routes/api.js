@@ -26,7 +26,11 @@ router.post('/token/transfer', isAuth.validateToken, validateToken.tokenTransfer
 router.post('/token/mint', isAuth.validateToken, validateToken.tokenMint(), tokenController.tokenMint);
 router.post('/token/burn', isAuth.validateToken, validateToken.tokenBurn(), tokenController.tokenBurn);
 router.post('/token/buy', isAuth.validateToken, validateToken.tokenBuy(), tokenController.tokenBuy);
-
+router.post('/token/price', isAuth.validateToken, validateToken.tokenPrice(), tokenController.tokenPrice);
+router.get('/token/price', isAuth.validateToken, validateToken.getPrice(), tokenController.getPrice);
+router.post('/token/confirm', isAuth.validateToken, validateToken.tokenConfirm(), tokenController.tokenConfirm);
+router.post('/token/reject', isAuth.validateToken, validateToken.tokenReject(), tokenController.tokenReject);
+router.post('/token/withdraw', isAuth.validateToken, validateToken.tokenWithdraw(), tokenController.tokenWithdraw);
 //api eth
 router.post('/eth/send', isAuth.validateToken, validateEth.send(), ethController.sendEth);
 router.get('/eth/history', ethController.getHistory);

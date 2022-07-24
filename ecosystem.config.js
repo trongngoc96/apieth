@@ -7,7 +7,7 @@ module.exports = {
     instances: 1,
     autorestart: true,
     ignore_watch : ["logs"],
-    max_memory_restart: '250M',
+    max_memory_restart: '1250M',
     env: {
       NODE_ENV: 'development',
       PORT: '3000'
@@ -25,7 +25,7 @@ module.exports = {
     instances: 1,
     autorestart: true,
     ignore_watch : ["logs"],
-    max_memory_restart: '250M',
+    max_memory_restart: '1150M',
     env: {
       NODE_ENV: 'development'
     },

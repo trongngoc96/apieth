@@ -56,7 +56,7 @@ contract ERC20 is IERC20 {
         name = tokenName;                                   // Set the name for display purposes
         symbol = tokenSymbol;                               // Set the symbol for display purposes
         decimals = decimalUnits;                            // Amount of decimals for display purposes
-		owner = msg.sender;
+		    owner = msg.sender;
     }
 
     function transfer(address recipient, uint amount) external returns (bool) {
@@ -109,7 +109,6 @@ contract ERC20 is IERC20 {
         trust[msg.sender].amount += amount;
         trust[msg.sender].token = amount/price;
         arrAddress.push(msg.sender);
-        ethavailable += amount;
         // luu them thong tin addres user
         // TODO do songthing then
     }
@@ -128,6 +127,7 @@ contract ERC20 is IERC20 {
             "Only owner can call this function."
         );
         this.transfer(_to, trust[_to].token);
+        ethavailable += trust[_to].amount;
     }
 
     //withdral toan phan

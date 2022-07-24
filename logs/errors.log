@@ -1068,3 +1068,27 @@
     at next (/home/trongnm/Documents/apieth/node_modules/express/lib/router/route.js:144:13)
     at middleware (/home/trongnm/Documents/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-24 22:59:10] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at tokenPrice (/home/happy/apieth/app/controllers/tokenController.js:330:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-24 22:59:52] [[31merror[39m] Error: Validation failed, entered data is incorrect.
+    at tokenPrice (/home/happy/apieth/app/controllers/tokenController.js:330:31)
+    at Layer.handle [as handle_request] (/home/happy/apieth/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/happy/apieth/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/happy/apieth/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2022-07-24 23:00:34] [[31merror[39m] price token: SyntaxError: Unexpected token x in JSON at position 1
+[2022-07-24 23:00:34] [[31merror[39m] SyntaxError: Unexpected token x in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at Object.tokenPrice (/home/happy/apieth/app/services/tokenServices.js:140:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async tokenPrice (/home/happy/apieth/app/controllers/tokenController.js:348:28)
+[2022-07-24 23:02:10] [[31merror[39m] price token: SyntaxError: Unexpected token x in JSON at position 1
+[2022-07-24 23:02:10] [[31merror[39m] SyntaxError: Unexpected token x in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at Object.tokenPrice (/home/happy/apieth/app/services/tokenServices.js:141:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async tokenPrice (/home/happy/apieth/app/controllers/tokenController.js:348:28)

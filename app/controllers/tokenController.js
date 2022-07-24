@@ -23,14 +23,14 @@ module.exports = ({
                 error.data = errors.array();
                 throw error;
             }
+            const web3 = ethGateWay.getLib();
             const initialsupply = req.body.initialsupply;
             const tokenname = req.body.tokenname;
             const productid = req.body.productid;
-            const balance = new BigNumber(initialsupply*Const.DECIMAL.toString());
+            const balance = web3.utils.toWei(initialsupply, "ether" );
             const tokensymbol = req.body.tokensymbol;
             const passwordWallet = req.body.passwordwallet;
             const findUser = await authServices.login({ 'id': req.decoded.user.id });
-            const web3 = ethGateWay.getLib();
             const keystore = findUser.data.keystore;
             const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
             const job = queue.create('deployed', {
@@ -85,6 +85,30 @@ module.exports = ({
             return res.status(200).send(result)
         } catch (error) {
             logger.error("FUNC: get balance token ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    getPrice: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const addressToken = req.query.addresstoken;
+            const data = {
+                "addressToken": addressToken
+            }
+            const result = await tokenServices.getPrice(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: get price token ", error);
             if (!error.statusCode) {
                 error.statusCode = 500;
             }
@@ -292,6 +316,138 @@ module.exports = ({
             return res.status(200).send(result)
         } catch (error) {
             logger.error("FUNC: token buy ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    tokenPrice: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const web3 = ethGateWay.getLib();
+            const amount = req.body.amount;
+            const balance = web3.utils.toWei(amount, "ether" );
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const keystore = findUser.data.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "amount": balance,
+                "addressToken": addressToken,
+                "account": account
+            }
+            const result = await tokenServices.tokenPrice(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: token buy ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    tokenConfirm: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const to = req.body.to;
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.data.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "to": to,
+                "addressToken": addressToken,
+                "account": account
+            }
+            const result = await tokenServices.tokenConfirm(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: confirm token ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    tokenReject: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const to = req.body.to;
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.data.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "to": to,
+                "addressToken": addressToken,
+                "account": account
+            }
+            const result = await tokenServices.tokenReject(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: confirm token ", error);
+            if (!error.statusCode) {
+                error.statusCode = 500;
+            }
+            next(error);
+        }
+    },
+
+    tokenWithdraw: async (req, res, next) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                const error = new Error('Validation failed, entered data is incorrect.');
+                error.statusCode = 442;
+                error.data = errors.array();
+                throw error;
+            }
+            const to = req.body.to;
+            const amount = req.body.amount;
+            const balance = new BigNumber(amount*1e18.toString());
+            const addressToken = req.body.addresstoken;
+            const passwordWallet = req.body.passwordwallet;
+            const findUser = await authServices.login({ 'id': req.decoded.user.id });
+            const web3 = ethGateWay.getLib();
+            const keystore = findUser.data.keystore;
+            const account = await web3.eth.accounts.decrypt(keystore, passwordWallet);
+            const data = {
+                "to": to,
+                "amount": balance,
+                "addressToken": addressToken,
+                "account": account
+            }
+            const result = await tokenServices.tokenWithdraw(data)
+            return res.status(200).send(result)
+        } catch (error) {
+            logger.error("FUNC: withdraw token ", error);
             if (!error.statusCode) {
                 error.statusCode = 500;
             }
